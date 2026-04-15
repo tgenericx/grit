@@ -76,7 +76,7 @@ jobs:
 
       - name: Create Release
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.get_version.outputs.tag }}
           name: Commando ${{ steps.get_version.outputs.tag }}
@@ -182,7 +182,7 @@ jobs:
           fi
 
       - name: Upload binary to release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: target/${{ matrix.target }}/release/${{ matrix.artifact_name }}
           name: ${{ matrix.asset_name }}
@@ -206,7 +206,7 @@ jobs:
           done
 
       - name: Upload checksums
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: SHA256SUMS
           append_body: true
